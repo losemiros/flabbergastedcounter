@@ -29,10 +29,21 @@
   <p>Count: <span id="counter">0</span></p>
 
   <script>
-    let count = 0;
+    // Sayacı localStorage'dan çek
+    let count = localStorage.getItem('flabbergastedCounter');
+
+    // Eğer daha önce yoksa sıfırla
+    if (!count) {
+      count = 0;
+    }
+
+    // Sayacı göster
+    document.getElementById('counter').innerText = count;
+
     function increase() {
       count++;
       document.getElementById('counter').innerText = count;
+      localStorage.setItem('flabbergastedCounter', count);
     }
   </script>
 </body>
